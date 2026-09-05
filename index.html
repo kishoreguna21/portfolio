@@ -1,1047 +1,1045 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Kishore G - B.Tech AI & Data Science student and aspiring AI Engineer. Portfolio, projects, skills, internship and certifications.">
+        content="Kishore G - B.Tech Artificial Intelligence and Data Science Student Portfolio">
+
+    <meta name="keywords"
+        content="Kishore G, AI, Data Science, Python, Portfolio">
+
+    <meta name="author"
+        content="Kishore G">
 
     <title>Kishore G | AI & Data Science</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        :root {
-            --bg: #07111f;
-            --card: #0d1b2a;
-            --card-light: #11243a;
-            --text: #f4f7fb;
-            --muted: #aab7c7;
-            --accent: #4da3ff;
-            --accent2: #7c5cff;
-            --border: rgba(255,255,255,0.09);
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVBAR */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(7,17,31,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: auto;
-            height: 70px;
-            padding: 0 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 28px;
-        }
-
-        nav ul a {
-            color: var(--muted);
-            font-size: 15px;
-            transition: 0.3s;
-        }
-
-        nav ul a:hover {
-            color: white;
-        }
-
-        .menu-btn {
-            display: none;
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        /* COMMON */
-
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 100px 25px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: var(--muted);
-        }
-
-        /* HERO */
-
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 120px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid rgba(77,163,255,0.35);
-            border-radius: 30px;
-            color: var(--accent);
-            margin-bottom: 22px;
-            font-size: 14px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero-content h1 span {
-            color: var(--accent);
-        }
-
-        .hero-content h2 {
-            font-size: 25px;
-            color: #d8e5f5;
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            max-width: 680px;
-            margin: auto;
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn {
-            padding: 13px 23px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: 0.3s;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #06101c;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 28px;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 21px;
-        }
-
-        .card p {
-            color: var(--muted);
-        }
-
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-            color: var(--muted);
-        }
-
-        .info-list li:last-child {
-            border-bottom: none;
-        }
-
-        .info-list strong {
-            color: white;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .skill {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 25px 15px;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            background: var(--card-light);
-        }
-
-        .skill-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .skill h3 {
-            font-size: 16px;
-        }
-
-        /* PROJECT */
-
-        .project-card {
-            background: linear-gradient(
-                135deg,
-                rgba(77,163,255,0.12),
-                rgba(124,92,255,0.08)
-            );
-
-            border: 1px solid rgba(77,163,255,0.25);
-            border-radius: 18px;
-            padding: 35px;
-        }
-
-        .project-number {
-            color: var(--accent);
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .project-card h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .project-card p {
-            color: var(--muted);
-            max-width: 750px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 22px 0;
-        }
-
-        .tag {
-            padding: 7px 13px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 13px;
-            color: #c8d7e8;
-        }
-
-        /* EXPERIENCE */
-
-        .timeline {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .timeline-item {
-            background: var(--card);
-            border-left: 3px solid var(--accent);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 0 12px 12px 0;
-        }
-
-        .timeline-item .date {
-            color: var(--accent);
-            font-size: 14px;
-            margin-bottom: 7px;
-        }
-
-        .timeline-item h3 {
-            margin-bottom: 5px;
-        }
-
-        .timeline-item h4 {
-            color: #c6d4e4;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .timeline-item p {
-            color: var(--muted);
-        }
-
-        /* CERTIFICATES */
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .cert {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 23px;
-            border-radius: 12px;
-        }
-
-        .cert h3 {
-            font-size: 17px;
-            margin-bottom: 7px;
-        }
-
-        .cert p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            text-align: center;
-            max-width: 750px;
-            margin: auto;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            margin-bottom: 25px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .contact-link {
-            padding: 12px 18px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--card);
-            transition: 0.3s;
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            nav ul {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: #07111f;
-
-                display: none;
-                flex-direction: column;
-                padding: 20px 25px;
-                gap: 18px;
-
-                border-bottom: 1px solid var(--border);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            section {
-                padding: 80px 18px;
-            }
-
-            nav {
-                padding: 0 18px;
-            }
-
-            .hero-content h1 {
-                font-size: 43px;
-            }
-
-            .hero-content h2 {
-                font-size: 21px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .skill {
-                padding: 18px 10px;
-            }
-
-            .project-card {
-                padding: 25px;
-            }
-        }
-    </style>
 </head>
+
 
 <body>
 
-<!-- NAVBAR -->
+
+<!-- ================= NAVBAR ================= -->
 
 <header>
-    <nav>
+
+    <nav class="navbar">
 
         <a href="#home" class="logo">
             Kishore<span>.</span>
         </a>
 
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-        <ul id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#certifications">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#certifications">Certificates</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
 
+
+        <button class="menu-btn"
+                id="menuBtn"
+                aria-label="Open Menu">
+
+            ☰
+
+        </button>
+
     </nav>
+
 </header>
 
 
-<!-- HERO -->
 
-<section id="home">
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
 
     <div class="hero-content">
 
-        <div class="badge">
+
+        <div class="hero-badge">
+
             B.Tech AI & Data Science • 2027
+
         </div>
+
 
         <h1>
-            Hi, I'm <span>Kishore G</span>
+
+            Hi, I'm
+            <span>Kishore G</span>
+
         </h1>
 
+
         <h2>
-            Aspiring AI Engineer
+
+            Aspiring Technology Professional
+
         </h2>
 
+
         <p>
+
             B.Tech Artificial Intelligence & Data Science student
-            passionate about technology, Python and building
-            practical solutions to real-world problems.
+            passionate about technology, software development,
+            Artificial Intelligence and building practical solutions
+            for real-world problems.
+
         </p>
 
-        <div class="buttons">
 
-            <a href="#projects" class="btn btn-primary">
-                View My Project
+        <div class="hero-buttons">
+
+            <a href="#projects"
+               class="btn primary-btn">
+
+                View Projects
+
             </a>
 
-            <a href="https://github.com/kishoreguna21"
-               target="_blank"
-               class="btn btn-secondary">
-                GitHub
+
+            <a href="resume.pdf"
+               class="btn secondary-btn"
+               target="_blank">
+
+                View Resume
+
             </a>
 
-            <a href="https://www.linkedin.com/in/kishore-gunasekaran-1aa361214"
-               target="_blank"
-               class="btn btn-secondary">
-                LinkedIn
+
+            <a href="resume.pdf"
+               class="btn outline-btn"
+               download>
+
+                Download Resume
+
             </a>
 
         </div>
 
+
+        <div class="hero-social">
+
+            <a href="https://github.com/kishoreguna21"
+               target="_blank">
+
+                GitHub
+
+            </a>
+
+
+            <a href="https://www.linkedin.com/in/kishore-gunasekaran-1aa361214"
+               target="_blank">
+
+                LinkedIn
+
+            </a>
+
+        </div>
+
+
     </div>
+
+
+
+    <!-- PROFILE PHOTO -->
+
+    <div class="hero-photo">
+
+        <div class="photo-glow"></div>
+
+        <img src="images/kishore.jpg"
+             alt="Kishore G">
+
+    </div>
+
 
 </section>
 
 
-<!-- ABOUT -->
+
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <span>ABOUT</span>
+
         <h2>About Me</h2>
-        <p>A student focused on learning, building and growing in technology.</p>
+
+        <p>
+            A student focused on learning, building and growing.
+        </p>
+
     </div>
+
 
     <div class="about-grid">
 
-        <div class="card">
+
+        <div class="about-card">
 
             <h3>Who I Am</h3>
 
+
             <p>
+
                 I am Kishore G, a B.Tech student specializing in
-                Artificial Intelligence and Data Science.
-                I am interested in Artificial Intelligence,
-                software development and solving real-world problems
-                through technology.
+                Artificial Intelligence and Data Science at
+                Annapoorana Engineering College.
+
             </p>
 
-            <br>
 
             <p>
-                My goal is to continuously improve my technical skills,
-                work on meaningful projects and gain practical industry
-                experience.
+
+                I am interested in Artificial Intelligence,
+                software development, data-driven solutions
+                and modern technologies.
+
+            </p>
+
+
+            <p>
+
+                My goal is to continuously improve my technical
+                skills, work on meaningful projects and gain
+                practical industry experience.
+
             </p>
 
         </div>
 
-        <div class="card">
+
+
+        <div class="about-card">
+
 
             <h3>Quick Information</h3>
 
-            <ul class="info-list">
 
-                <li>
-                    <strong>Degree:</strong>
-                    B.Tech – AI & Data Science
-                </li>
+            <div class="info-item">
 
-                <li>
-                    <strong>College:</strong>
-                    Annapoorana Engineering College
-                </li>
+                <strong>Degree</strong>
 
-                <li>
-                    <strong>Graduation:</strong>
-                    2027
-                </li>
+                <span>B.Tech – AI & Data Science</span>
 
-                <li>
-                    <strong>Career Goal:</strong>
-                    AI / Data Science
-                </li>
+            </div>
 
-                <li>
-                    <strong>Location:</strong>
-                    Tamil Nadu, India
-                </li>
 
-            </ul>
+            <div class="info-item">
+
+                <strong>College</strong>
+
+                <span>Annapoorana Engineering College</span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <strong>Graduation</strong>
+
+                <span>2027</span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <strong>Location</strong>
+
+                <span>Tamil Nadu, India</span>
+
+            </div>
+
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- SKILLS -->
+
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <span>SKILLS</span>
 
         <h2>Technical Skills</h2>
 
         <p>
-            Technologies and tools I am currently learning and working with.
+            Technologies and tools I am learning and working with.
         </p>
 
     </div>
+
+
 
     <div class="skills-grid">
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">🐍</div>
+
             <h3>Python</h3>
+
+            <p>Programming</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">☕</div>
+
             <h3>Java</h3>
+
+            <p>Programming</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">🌐</div>
+
             <h3>HTML</h3>
+
+            <p>Web Development</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">🎨</div>
+
             <h3>CSS</h3>
+
+            <p>Web Development</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">🤖</div>
+
             <h3>Artificial Intelligence</h3>
+
+            <p>Technology</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">📊</div>
+
             <h3>Data Science</h3>
+
+            <p>Data & Analytics</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">💻</div>
+
             <h3>Web Development</h3>
+
+            <p>Frontend</p>
+
         </div>
 
-        <div class="skill">
+
+        <div class="skill-card">
+
             <div class="skill-icon">🔗</div>
+
             <h3>Git & GitHub</h3>
+
+            <p>Version Control</p>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- PROJECTS -->
+
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <h2>Featured Project</h2>
+        <span>PROJECTS</span>
+
+        <h2>My Projects</h2>
 
         <p>
-            A project focused on applying technology to a real-world problem.
+            Projects that I am building and developing.
         </p>
 
     </div>
 
-    <div class="project-card">
 
-        <div class="project-number">
-            PROJECT 01
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <div class="project-card">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+
+            <h3>
+                AI Legal Agreement Assistant
+            </h3>
+
+
+            <p>
+
+                An AI-focused application designed to help users
+                understand and analyze legal agreements more easily.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>AI</span>
+
+                <span>Python</span>
+
+                <span>Document Analysis</span>
+
+            </div>
+
+
+            <div class="project-status">
+
+                🚧 Under Development
+
+            </div>
+
         </div>
 
-        <h3>
-            AI Legal Agreement Assistant
-        </h3>
 
-        <p>
-            An AI-focused application designed to help users
-            understand and analyze legal agreements more easily.
-            The project explores how Artificial Intelligence can
-            be applied to practical document-related problems.
-        </p>
 
-        <div class="project-tags">
+        <!-- PROJECT 02 -->
 
-            <span class="tag">Artificial Intelligence</span>
-            <span class="tag">Python</span>
-            <span class="tag">Legal Technology</span>
-            <span class="tag">Document Analysis</span>
+        <div class="project-card">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+
+            <h3>
+                Ticket Master AI
+            </h3>
+
+
+            <p>
+
+                B2B Notification Sound System using AI.
+                The project is currently being developed.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>AI</span>
+
+                <span>B2B</span>
+
+                <span>Notification System</span>
+
+            </div>
+
+
+            <div class="project-status">
+
+                🚧 Under Development
+
+            </div>
 
         </div>
 
-        <a href="https://github.com/kishoreguna21"
-           target="_blank"
-           class="btn btn-primary">
-            View GitHub
-        </a>
+
+
+        <!-- PROJECT 03 -->
+
+        <div class="project-card">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+
+            <h3>
+                Code Analyzer
+            </h3>
+
+
+            <p>
+
+                Python-based code analysis and syntax correction
+                project designed to help identify programming errors.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>Python</span>
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+            </div>
+
+
+            <div class="project-status">
+
+                🚧 Under Development
+
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- EXPERIENCE -->
+
+<!-- ================= EXPERIENCE ================= -->
 
 <section id="experience">
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <h2>Experience</h2>
+        <span>EXPERIENCE</span>
+
+        <h2>Internship Experience</h2>
 
         <p>
-            Internship and practical exposure.
+            My practical learning experience.
         </p>
 
     </div>
 
+
+
     <div class="timeline">
+
+
+        <!-- EXPERIENCE 01 -->
 
         <div class="timeline-item">
 
-            <div class="date">
+            <div class="timeline-dot"></div>
+
+
+            <span class="date">
+                22 June 2026 – 08 July 2026
+            </span>
+
+
+            <h3>
+                Data Science Intern
+            </h3>
+
+
+            <h4>
+                OdugaaTech Pvt. Ltd.
+            </h4>
+
+
+            <p>
+
+                Successfully completed a 15-day Data Science
+                Internship Program, gaining practical exposure
+                to Data Science concepts and industry-oriented
+                learning.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- EXPERIENCE 02 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+
+            <span class="date">
                 09 June 2025 – 27 June 2025
-            </div>
+            </span>
+
 
             <h3>
                 UI/UX Design Intern
             </h3>
 
+
             <h4>
                 AlgoJaxon Global Soft Pvt. Ltd.
             </h4>
 
+
             <p>
+
                 Completed an internship focused on UI/UX design,
                 gaining practical exposure to design concepts
                 and application interface development.
+
             </p>
 
         </div>
 
+
     </div>
 
 </section>
-<div class="timeline-item">
-
-    <div class="date">
-        22 June 2026 – 08 July 2026
-    </div>
-
-    <h3>
-        Data Science Intern
-    </h3>
-
-    <h4>
-        OdugaTech Pvt. Ltd.
-    </h4>
-
-    <p>
-        Successfully completed a 15-day Data Science Internship Program,
-        gaining practical exposure to Data Science concepts and
-        industry-oriented learning.
-    </p>
-
-</div>
 
 
-<!-- CERTIFICATIONS -->
+
+<!-- ================= CERTIFICATES ================= -->
 
 <section id="certifications">
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <span>CERTIFICATES</span>
 
         <h2>Certifications & Activities</h2>
 
         <p>
-            Academic activities, workshops and technical events.
+            Technical events, workshops and learning achievements.
         </p>
 
     </div>
 
-    <div class="cert-grid">
 
-        <div class="cert">
+
+    <div class="certificate-grid">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🎓
+            </div>
+
+            <h3>
+                Data Science Internship
+            </h3>
+
+            <p>
+                OdugaaTech Pvt. Ltd.
+            </p>
+
+            <span>
+                Certificate of Completion • 2026
+            </span>
+
+
+            <a href="certificates/1000084777 oduca tech.jpg"
+               target="_blank"
+               class="certificate-btn">
+
+                View Certificate →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🎨
+            </div>
 
             <h3>
                 UI/UX Design Internship
             </h3>
 
             <p>
-                AlgoJaxon Global Soft Pvt. Ltd. • 2025
+                AlgoJaxon Global Soft Pvt. Ltd.
             </p>
+
+            <span>
+                Internship • 2025
+            </span>
 
         </div>
 
-        <div class="cert">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🏆
+            </div>
 
             <h3>
                 Supporticon HackFest 2025
             </h3>
 
             <p>
-                Participation • 31 Oct – 01 Nov 2025
+                Technical HackFest
             </p>
+
+            <span>
+                Participation • 2025
+            </span>
 
         </div>
 
-        <div class="cert">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🌐
+            </div>
 
             <h3>
                 Web Application Development
             </h3>
 
             <p>
-                George Academy • Course Completion • 2024
+                George Academy
             </p>
+
+            <span>
+                Course Completion • 2024
+            </span>
 
         </div>
 
-        <div class="cert">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                💡
+            </div>
 
             <h3>
                 Mini Project – AI & DS Tech Fest
             </h3>
 
             <p>
-                Annapoorana Engineering College • 2025
+                Annapoorana Engineering College
             </p>
+
+            <span>
+                Technical Activity • 2025
+            </span>
 
         </div>
 
-        <div class="cert">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🐞
+            </div>
 
             <h3>
                 Bug Buster
             </h3>
 
             <p>
-                Technical Event • Excel Engineering College • 2025
+                Excel Engineering College
             </p>
+
+            <span>
+                Certificate of Merit • 2025
+            </span>
 
         </div>
 
-        <div class="cert">
+
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                🔐
+            </div>
 
             <h3>
                 Ethical Hacking Workshop
             </h3>
 
             <p>
-                National Level Technical Workshop • 2024
+                National Level Technical Workshop
             </p>
+
+            <span>
+                Workshop • 2024
+            </span>
 
         </div>
 
-<div class="cert">
 
-    <h3>
-        Data Science Internship
-        
-    </h3>
+    </div>
 
-    <p>
-        OdugaTech Pvt. Ltd. • Certificate of Completion
-    </p>
-
-    <p>
-        15 Days • 22 June 2026 – 08 July 2026
-    </p>
-
-    <br>
-
-    <a href="certificates/1000084777 oduca tech.jpg">
-        View Certificate
-    </a>
-
-</div>
 </section>
 
 
-<!-- EDUCATION -->
+
+<!-- ================= EDUCATION ================= -->
 
 <section id="education">
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <span>EDUCATION</span>
 
         <h2>Education</h2>
 
         <p>
-            Academic background.
+            My academic background.
         </p>
 
     </div>
 
-    <div class="card" style="max-width:800px;margin:auto;text-align:center;">
 
-        <h3>
-            B.Tech – Artificial Intelligence & Data Science
-        </h3>
+    <div class="education-card">
 
-        <p>
-            Annapoorana Engineering College
-        </p>
 
-        <p style="margin-top:8px;">
-            Expected Graduation: 2027
-        </p>
+        <div class="education-icon">
+            🎓
+        </div>
+
+
+        <div>
+
+            <h3>
+                B.Tech – Artificial Intelligence & Data Science
+            </h3>
+
+
+            <h4>
+                Annapoorana Engineering College
+            </h4>
+
+
+            <p>
+                2023 – 2027
+            </p>
+
+
+            <p>
+                Expected Graduation: 2027
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <span>CONTACT</span>
 
         <h2>Let's Connect</h2>
 
         <p>
-            Interested in internships, projects and opportunities
-            in Artificial Intelligence and Data Science.
+
+            I'm open to internships, projects,
+            learning opportunities and career opportunities.
+
         </p>
 
     </div>
 
-    <div class="contact-box">
 
-        <div class="contact-links">
+    <div class="contact-card">
 
-            <a href="mailto:kishoregun21@gmail.com"
-               class="contact-link">
-                📧 Email
-            </a>
 
-            <a href="https://github.com/kishoreguna21"
-               target="_blank"
-               class="contact-link">
-                💻 GitHub
-            </a>
+        <div class="contact-item">
 
-            <a href="https://www.linkedin.com/in/kishore-gunasekaran-1aa361214"
-               target="_blank"
-               class="contact-link">
-                🔗 LinkedIn
-            </a>
+            <span>📧</span>
+
+            <div>
+
+                <small>Email</small>
+
+                <a href="mailto:kishoreguna21@gmail.com">
+
+                    kishoreguna21@gmail.com
+
+                </a>
+
+            </div>
 
         </div>
+
+
+
+        <div class="contact-item">
+
+            <span>💻</span>
+
+            <div>
+
+                <small>GitHub</small>
+
+                <a href="https://github.com/kishoreguna21"
+                   target="_blank">
+
+                    github.com/kishoreguna21
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+            <span>🔗</span>
+
+            <div>
+
+                <small>LinkedIn</small>
+
+                <a href="https://www.linkedin.com/in/kishore-gunasekaran-1aa361214"
+                   target="_blank">
+
+                    LinkedIn Profile
+
+                </a>
+
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
+    <h3>
+        Kishore<span>.</span>
+    </h3>
+
+
     <p>
-        © 2026 Kishore G. Built with HTML & CSS.
+        B.Tech AI & Data Science Student
+    </p>
+
+
+    <p class="copyright">
+        © 2026 Kishore G. All Rights Reserved.
     </p>
 
 </footer>
 
 
-<!-- JAVASCRIPT -->
 
-<script>
+<!-- ================= BACK TO TOP ================= -->
 
-    function toggleMenu() {
+<button id="topBtn"
+        title="Go to top">
 
-        const nav = document.getElementById("navLinks");
+    ↑
 
-        nav.classList.toggle("active");
+</button>
 
-    }
 
-    document.querySelectorAll("#navLinks a").forEach(function(link) {
 
-        link.addEventListener("click", function() {
-
-            document.getElementById("navLinks").classList.remove("active");
-
-        });
-
-    });
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
