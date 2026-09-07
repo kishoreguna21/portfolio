@@ -427,69 +427,169 @@ button {
 
 
 
-/* =========================
-   PROFILE IMAGE
-========================= */
+/* =========================================
+   PREMIUM HERO PROFILE DESIGN
+========================================= */
 
 .hero-image-container {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
     position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 460px;
 }
 
+
+/* -----------------------------------------
+   BACKGROUND GLOW
+----------------------------------------- */
 
 .image-glow {
     position: absolute;
 
-    width: 310px;
-    height: 310px;
+    width: 390px;
+    height: 390px;
+
+    border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(79,124,255,0.25),
-            transparent 65%
+            rgba(79, 124, 255, 0.28) 0%,
+            rgba(139, 92, 246, 0.16) 35%,
+            transparent 70%
         );
 
     filter: blur(20px);
+
+    animation: profileGlow 5s ease-in-out infinite;
+
+    z-index: 0;
 }
 
 
-.profile-frame {
-    width: 310px;
-    height: 370px;
+/* -----------------------------------------
+   ORBIT RING
+----------------------------------------- */
 
-    position: relative;
+.hero-image-container::before {
+    content: "";
 
-    border-radius: 28px;
+    position: absolute;
 
-    padding: 4px;
+    width: 355px;
+    height: 355px;
 
-    background: var(--gradient);
+    border-radius: 50%;
 
-    transform: rotate(3deg);
+    border: 1px solid
+        rgba(79, 124, 255, 0.25);
 
     box-shadow:
-        0 30px 80px
-        rgba(0,0,0,0.5);
+        0 0 30px rgba(79, 124, 255, 0.08);
+
+    animation:
+        orbitRotate 12s linear infinite;
+
+    z-index: 0;
 }
 
+
+/* -----------------------------------------
+   ORBIT SECOND RING
+----------------------------------------- */
+
+.hero-image-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 405px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.25);
+
+    transform: rotate(-25deg);
+
+    animation:
+        orbitRotateReverse 15s linear infinite;
+
+    z-index: 0;
+}
+
+
+/* -----------------------------------------
+   PHOTO FRAME
+----------------------------------------- */
+
+.profile-frame {
+    position: relative;
+
+    width: 305px;
+    height: 375px;
+
+    padding: 6px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(79,124,255,0.9),
+            rgba(139,92,246,0.8),
+            rgba(79,124,255,0.15)
+        );
+
+    transform:
+        perspective(1000px)
+        rotateY(-5deg)
+        rotateZ(2deg);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 40px
+        rgba(79, 124, 255, 0.12);
+
+    z-index: 3;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+    animation:
+        profileFloat 5s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   PHOTO INNER BACKGROUND
+----------------------------------------- */
 
 .profile-frame::before {
     content: "";
 
     position: absolute;
 
-    inset: 2px;
+    inset: 6px;
+
+    border-radius: 25px;
 
     background: #080a12;
 
-    border-radius: 25px;
+    z-index: 0;
 }
 
+
+/* -----------------------------------------
+   PROFILE IMAGE
+----------------------------------------- */
 
 .profile-image {
     position: relative;
@@ -499,11 +599,145 @@ button {
 
     object-fit: cover;
 
-    border-radius: 24px;
+    border-radius: 25px;
 
     z-index: 2;
 
-    transform: rotate(-3deg);
+    transform: none;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+/* -----------------------------------------
+   HOVER EFFECT
+----------------------------------------- */
+
+.profile-frame:hover {
+    transform:
+        perspective(1000px)
+        rotateY(0deg)
+        rotateZ(0deg)
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 45px 90px
+        rgba(0, 0, 0, 0.6),
+
+        0 0 55px
+        rgba(79, 124, 255, 0.22);
+}
+
+
+.profile-frame:hover .profile-image {
+    transform: scale(1.025);
+}
+
+
+/* -----------------------------------------
+   FLOATING DOT 1
+----------------------------------------- */
+
+.hero-image-container .image-glow::before {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #4f7cff;
+
+    box-shadow:
+        0 0 15px #4f7cff;
+
+    top: 30px;
+    right: 45px;
+
+    animation:
+        dotFloat 4s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   ANIMATIONS
+----------------------------------------- */
+
+@keyframes profileGlow {
+
+    0%,
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+@keyframes profileFloat {
+
+    0%,
+    100% {
+        transform:
+            perspective(1000px)
+            rotateY(-5deg)
+            rotateZ(2deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            perspective(1000px)
+            rotateY(-5deg)
+            rotateZ(2deg)
+            translateY(-8px);
+    }
+}
+
+
+@keyframes orbitRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes orbitRotateReverse {
+
+    from {
+        transform: rotate(-25deg);
+    }
+
+    to {
+        transform: rotate(-385deg);
+    }
+}
+
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-20px, 15px);
+    }
 }
 
 
